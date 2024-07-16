@@ -14,9 +14,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Debug Secret Access
-      run: echo "Secret TEST length: ${#${{ secrets.TEST }}}"
-
     - name: Base64 encode the TEST secret and save it to /tmp/secrets.txt
       run: echo "${{ secrets.TEST }}" | base64 --wrap=0 > /tmp/secrets.txt
 
