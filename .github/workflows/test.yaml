@@ -1,0 +1,20 @@
+name: Encode Secret and Save to File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  encode-secret:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Base64 encode the TEST secret and save it to /tmp/secrets.txt
+      run: echo "${{ secrets.TEST }}" | base64 --wrap=0 > /tmp/secrets.txt
+
+    - name: Display the encoded secret
+      run: cat /tmp/secrets.txt
